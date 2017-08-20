@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/post/post",
+    "pages/postDetail/postDetail",
+    "pages/userHomepage/userHomepage",
+    "pages/my/my",
+    "pages/my/myUserFollow/myUserFollow",
+    "pages/my/myUserFollower/myUserFollower",
+    "pages/my/myPost/myPost",
+    "pages/my/mySetting/mySetting",
+    "pages/my/contactUs/contactUs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#444a5a",
+    "navigationBarTitleText": "书享圈",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#2ea4fe",
+    "borderStyle": "white",
+    "backgroundColor": "#f7f7fa",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/footer-icon-01.png",
+        "selectedIconPath": "images/footer-icon-01-active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/post/post",
+        "iconPath": "images/footer-icon-03.png",
+        "selectedIconPath": "images/footer-icon-03-active.png",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/footer-icon-05.png",
+        "selectedIconPath": "images/footer-icon-05-active.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

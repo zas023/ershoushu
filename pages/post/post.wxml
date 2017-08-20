@@ -1,0 +1,125 @@
+<!--post.wxml-->
+<view class="weui-cells__title">请先在“我的”里点击自己的头像设置联系方式哦~</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label">ISBN</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入或扫码" bindblur="inputBookISBN" value="{{bookISBN}}" />
+    </view>
+    <view class="weui-cell__ft" bindtap="scanBookISBN">
+      <image class="weui-vcode-img" src="../../images/scan.png" style="width: 55px"></image>
+    </view>
+  </view>
+</view>
+
+<view class="weui-panel weui-panel_access">
+  <view class="title">
+    <view class="title_image">
+      <image style="width:125px; height:200px" src="{{bookImg}}" mode="aspectFit" />
+    </view>
+
+    <view class="title_right">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">书名</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入书名" bindinput="bindBookNameInput" value="{{bookName}}" />
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">作者</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入作者" bindinput="bindBookAuthorInput" value="{{bookAuthor}}" />
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">出版社</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入出版社" bindinput="bindBookPressInput" value="{{bookPress}}" />
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">定价</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入定价" bindinput="bindBookPriceInput" value="{{bookPrice}}" type="digit" />
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<view class="weui-panel weui-panel_access">
+
+  <view class="weui-cell weui-cell_switch">
+    <view class="weui-cell__bd">是否为教材教辅</view>
+    <view class="weui-cell__ft">
+      <switch checked="{{isTextbook}}" bindchange="bindNeedCourse" />
+    </view>
+  </view>
+
+  <view wx:if="{{isTextbook}}" class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">课程名称</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入相应的课程名称" bindinput="bindCourseInput" />
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">校区</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindCampusChange" value="{{campusIndex}}" range="{{campus}}">
+        <view class="weui-select weui-select_in-select-after">{{campus[campusIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">成色</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindConditionChange" value="{{conditionIndex}}" range="{{conditions}}">
+        <view class="weui-select weui-select_in-select-after">{{conditions[conditionIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">售价</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="价格越低越容易售出哦" bindinput="bindCurrentPriceInput" type="number" value="{{currentPrice}}" />
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">备注</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" bindinput="bindPostRemarkInput" placeholder="可不填" />
+    </view>
+  </view>
+</view>
+
+
+<button type="primary" size="default" disabled="{{bookISBN == ''||bookName == ''||bookAuthor == ''||bookPress == ''||bookPrice == ''||(isTextbook==true&&courseName=='')||currentPrice ==''||buttonLoading ? true : false}}" loading="{{buttonLoading}}" bindtap="bindSubmit">
+  立即发布 </button>

@@ -1,0 +1,12 @@
+/* pages/index/index.wxss */
+.item_content{
+  display: flex;
+  flex-direction: cow;
+}
+
+.item_content_left{
+  margin-left: 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

@@ -1,0 +1,10 @@
+/* post.wxss */
+.title{
+    display: flex;
+    flex-direction: row;
+}
+
+.title_right{
+    display: flex;
+    flex-direction: column;
+}

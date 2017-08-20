@@ -1,0 +1,10 @@
+<!--pages/userHomepage/userHomepage.wxml-->
+
+
+<view class="tool">
+  <view class="tool-item" catchtap="onPostLike">
+    <image wx:if="{{postLike}}" src="/images/postLike.png" />
+    <image wx:else src="/images/postUnlike.png" />
+    <text>关注TA</text>
+  </view>
+</view>

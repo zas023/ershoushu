@@ -1,0 +1,61 @@
+<!--postDetail.wxml-->
+
+<view class="weui-cells__title">图书详情</view>
+<view class="weui-panel weui-panel_access">
+  <view class="weui-media-box__title weui-media-box__title_in-text">{{bookName}}</view>
+
+  <view class="item_content">
+
+    <image style="width:125px; height:200px" src="{{bookImg}}" mode="aspectFit" />
+
+    <view class="item_content_left">
+
+      <view wx:if="{{isTextbook==true}}" class="weui-media-box__desc">课程：{{courseName}}</view>
+      <view class="weui-media-box__desc">ISBN：{{bookISBN}}</view>
+      <view class="weui-media-box__desc">作者：{{bookAuthor}}</view>
+      <view class="weui-media-box__desc">出版社：{{bookPress}}</view>
+      <view class="weui-media-box__desc">成色：{{condition}}</view>
+      <view class="weui-media-box__desc">原价：{{bookPrice}}</view>
+      <view class="weui-media-box__desc">售价：{{currentPrice}}元</view>
+      <view wx:if="{{postRemark!=''}}" class="weui-media-box__desc">备注：{{postRemark}}</view>
+
+    </view>
+  </view>
+
+  <view class="weui-media-box__info">
+    <view class="weui-media-box__info__meta weui-media-time">更新时间：{{updatedAt}}</view>
+  </view>
+</view>
+<view class="weui-cells__title">它的主人（点击查看TA的所有发布）</view>
+<navigator url="../userHomepage/userHomepage?ownerId={{ownerId}}">
+  <view class="weui-cells weui-cells_after-title">
+
+    <view class="weui-cell" bindtap="navToUserHomePage">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="{{ownerPic}}" style="width: 50px; height: 50px; display: block" />
+        <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">{{ownerPostCount}}</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view>{{ownerNickname}}</view>
+        <view style="font-size: 13px;color: #888888;">{{ownerCollege}}{{ownerEntryYear}}级{{ownerEducation}}</view>
+      </view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+
+  </view>
+</navigator>
+<view class="weui-cells__title">联系方式（长按选择复制）</view>
+<view class="weui-cells weui-cells_after-title">
+  <view wx:if="{{ownerPhone!=''}}" class="weui-cell">
+    <text selectable="true" class="weui-cell__bd">{{ownerPhone}}</text>
+    <view class="weui-cell__ft">手机</view>
+  </view>
+  <view wx:if="{{ownerWechat!=''}}" class="weui-cell">
+    <text selectable="true" class="weui-cell__bd">{{ownerWechat}}</text>
+    <view class="weui-cell__ft">微信</view>
+  </view>
+  <view wx:if="{{ownerQQ!=''}}" class="weui-cell">
+    <text selectable="true" class="weui-cell__bd">{{ownerQQ}}</text>
+    <view class="weui-cell__ft">QQ</view>
+  </view>
+</view>

@@ -1,0 +1,82 @@
+<!--pages/my/mySetting/mySetting.wxml-->
+<view class="weui-cells__title">以下信息必填哦</view>
+<view class="weui-panel weui-panel_access">
+
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">学校</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindUniversityChange" value="{{universityIndex}}" range="{{university}}">
+        <view class="weui-select weui-select_in-select-after">{{university[universityIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">学院</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindCollegeChange" value="{{collegeIndex}}" range="{{college}}">
+        <view class="weui-select weui-select_in-select-after">{{college[collegeIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">学历</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindEducationChange" value="{{educationIndex}}" range="{{education}}">
+        <view class="weui-select weui-select_in-select-after">{{education[educationIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">入学年份</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindEntryYearChange" value="{{entryYearIndex}}" range="{{entryYear}}">
+        <view class="weui-select weui-select_in-select-after">{{entryYear[entryYearIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells__title">请注意：以下联系方式将展示给该小程序的其他用户</view>
+<view class="weui-cells__title">为保证意向买家能与你取得联系，至少需要填一项</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">微信号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入微信号" bindinput="bindWechatInput" value="{{userWechat}}" />
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">QQ号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入QQ号" bindinput="bindQQInput" value="{{userQQ}}" type="number" />
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">手机号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入手机号" bindinput="bindPhoneInput" value="{{userPhone}}" type="number" />
+    </view>
+  </view>
+</view>
+
+
+<button type="primary" size="default" disabled="{{!(userWechat!=''||userQQ!=''||userPhone!='')||buttonLoading ? true : false}}"
+  loading="{{buttonLoading}}" bindtap="bindSubmit"> 提交修改 </button>
